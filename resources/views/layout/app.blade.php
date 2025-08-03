@@ -251,18 +251,16 @@
                         <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Ir.+Sutami+36A,+Surakarta" target="_blank" class="text-decoration-none text-white">
                             <i class="fas fa-map-marker-alt me-2"></i> Jl. Ir. Sutami 36A, Surakarta
                         </a><br>
-                        <a href="https://wa.me/6282318271868" target="_blank" class="text-decoration-none text-white">
-                            <i class="fab fa-whatsapp me-2"></i> 0823 1827 1868
+                        <a href="https://wa.me/6281230448373" target="_blank" class="text-decoration-none text-white">
+                            <i class="fab fa-whatsapp me-2"></i> 0812 3044 8373
                         </a><br>
-                        <a href="mailto:lpske@ft.uns.ac.id" class="text-decoration-none text-white">
-                            <i class="fas fa-envelope me-2"></i> lpske@ft.uns.ac.id
+                        <a href="https://www.instagram.com/lpske_tiuns/" class="text-decoration-none text-white">
+                            <i class="fas fa-envelope me-2"></i> lpske_tiuns
                         </a>
                     </p>
                     <div class="social-links mt-3">
-                        <a href="#" class="text-decoration-none"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-decoration-none"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-decoration-none"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-decoration-none"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/lpske_tiuns/" class="text-decoration-none"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@chairulumamachmad5292" class="text-decoration-none"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
