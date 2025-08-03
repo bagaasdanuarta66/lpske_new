@@ -93,28 +93,11 @@ class TeamResource extends Resource
                                 Section::make('Foto Profil')
                                     ->schema([
                                         FileUpload::make('photo')
-                                            ->label('')
+                                            ->label('Foto')
                                             ->image()
                                             ->directory('teams')
                                             ->imageEditor()
-                                            ->imageResizeMode('cover')
-                                            ->imageCropAspectRatio('1:1')
-                                            ->imageResizeTargetWidth(400)
-                                            ->imageResizeTargetHeight(400)
-                                            ->maxSize(2048)
-                                            ->columnSpanFull()
-                                            ->disk('public')
-                                            ->visibility('public')
-                                            ->preserveFilenames()
-                                            ->downloadable()
-                                            ->openable()
-                                            ->imagePreviewHeight('250')
-                                            ->loadingIndicatorPosition('left')
-                                            ->panelAspectRatio('2:1')
-                                            ->panelLayout('integrated')
-                                            ->removeUploadedFileButtonPosition('right')
-                                            ->uploadButtonPosition('left')
-                                            ->uploadProgressIndicatorPosition('left')
+                                            ->required()
                                             ->getUploadedFileNameForStorageUsing(
                                                 function (TemporaryUploadedFile $file): string {
                                                     $extension = $file->getClientOriginalExtension();
@@ -144,6 +127,11 @@ class TeamResource extends Resource
                     ->circular()
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\ImageColumn::make('photo')
+                    ->label('Foto')
+                    ->circular()
+                    ->width(50)
+                    ->height(50),
                 TextColumn::make('name')
                     ->label('Nama')
                     ->searchable()

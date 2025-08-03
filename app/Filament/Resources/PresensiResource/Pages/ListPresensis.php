@@ -14,4 +14,9 @@ class ListPresensis extends ListRecords
     {
         return [];
     }
+
+    public function getTitle(): string
+    {
+        return 'Daftar Presensi';
+    }
 }

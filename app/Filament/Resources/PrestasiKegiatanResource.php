@@ -85,10 +85,6 @@ class PrestasiKegiatanResource extends Resource
                                     ->numeric()
                                     ->default(0),
                                     
-                                Forms\Components\Toggle::make('is_active')
-                                    ->label('Aktif')
-                                    ->default(true),
-                                    
                                 Forms\Components\Toggle::make('is_featured')
                                     ->label('Tampilkan di Beranda')
                                     ->helperText('Maksimal 3 item yang bisa ditampilkan di beranda')

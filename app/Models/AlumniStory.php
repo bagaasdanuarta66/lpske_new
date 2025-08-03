@@ -12,16 +12,15 @@ class AlumniStory extends Model
     protected $table = 'alumni_story';
 
     protected $fillable = [
-        'nama',
-        'angkatan',
-        'pekerjaan',
-        'perusahaan',
-        'testimoni',
+        'deskripsi',
         'foto',
-        'is_active'
+        'angkatan',
+        'is_active',
+        'user_id'
     ];
-
+    
     protected $casts = [
+        'angkatan' => 'integer',
         'is_active' => 'boolean',
     ];
 }

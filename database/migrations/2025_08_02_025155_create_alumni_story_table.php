@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('alumni_story', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('angkatan');
-            $table->string('pekerjaan');
-            $table->string('perusahaan');
-            $table->text('testimoni')->nullable();
-            $table->string('foto')->nullable();
+            $table->text('deskripsi');
+            $table->string('foto');
+            $table->year('angkatan');
             $table->boolean('is_active')->default(true);
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
             $table->timestamps();
             $table->softDeletes();
         });

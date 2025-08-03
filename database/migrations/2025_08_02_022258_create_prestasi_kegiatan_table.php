@@ -15,15 +15,25 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->text('deskripsi')->nullable();
+            
+            // Media
             $table->string('gambar')->nullable();
             $table->string('video_url')->nullable();
+            $table->boolean('is_video')->default(false);
+            
+            // Kategori dan Tanggal
             $table->enum('jenis', ['prestasi', 'kegiatan']);
             $table->date('tanggal');
-            $table->boolean('is_video')->default(false);
+            
+            // Fitur Unggulan
             $table->boolean('is_featured')->default(false);
-            $table->timestamp('featured_at')->nullable();
             $table->boolean('is_active')->default(true);
+            $table->timestamp('featured_at')->nullable();
+            
+            // Pengurutan
             $table->integer('sort_order')->default(0);
+            
+            // Timestamps
             $table->timestamps();
             $table->softDeletes();
         });

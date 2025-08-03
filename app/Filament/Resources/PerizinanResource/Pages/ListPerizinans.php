@@ -10,16 +10,9 @@ class ListPerizinans extends ListRecords
 {
     protected static string $resource = PerizinanResource::class;
 
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
-
     public function getTitle(): string 
     {
-        return 'Perizinan';
+        return 'Daftar Perizinan';
     }
 
 }

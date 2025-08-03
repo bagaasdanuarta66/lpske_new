@@ -29,49 +29,51 @@ class AlumniStoryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Section::make('Informasi Alumni')
-                    ->description('Isi informasi lengkap alumni untuk ditampilkan di halaman Alumni Story')
+                Forms\Components\Section::make('Foto')
+                    ->description('Unggah foto untuk ditampilkan di halaman Alumni Story')
                     ->schema([
                         Forms\Components\FileUpload::make('foto')
-                            ->label('Foto Profil')
+                            ->label('')
                             ->image()
                             ->directory('alumni')
                             ->imageEditor()
                             ->columnSpanFull()
                             ->maxSize(2048)
-                            ->helperText('Ukuran maksimal 2MB. Format: JPG, JPEG, atau PNG'),
-                        Forms\Components\TextInput::make('nama')
-                            ->label('Nama Lengkap')
+                            ->helperText('Ukuran maksimal 2MB. Format: JPG, JPEG, atau PNG')
+                    ])
+                    ->collapsible(),
+
+                Forms\Components\Section::make('Informasi')
+                    ->schema([
+                        Forms\Components\Select::make('angkatan')
+                            ->label('Angkatan')
+                            ->options(function () {
+                                $currentYear = (int) date('Y');
+                                $years = [];
+                                for ($year = $currentYear; $year >= 2010; $year--) {
+                                    $years[$year] = $year;
+                                }
+                                return $years;
+                            })
                             ->required()
-                            ->maxLength(255),
-                        Forms\Components\TextInput::make('angkatan')
-                            ->label('Tahun Angkatan')
-                            ->required()
-                            ->maxLength(10)
-                            ->placeholder('Contoh: 2022'),
-                        Forms\Components\TextInput::make('pekerjaan')
-                            ->label('Posisi Pekerjaan')
-                            ->required()
-                            ->maxLength(255)
-                            ->placeholder('Contoh: Software Engineer'),
-                        Forms\Components\TextInput::make('perusahaan')
-                            ->label('Nama Perusahaan')
-                            ->required()
-                            ->maxLength(255)
-                            ->placeholder('Nama perusahaan tempat bekerja'),
-                        Forms\Components\Textarea::make('testimoni')
-                            ->label('Cerita/Kesimpulan')
-                            ->required()
-                            ->columnSpanFull()
-                            ->helperText('Bagikan pengalaman atau pesan inspiratif untuk adik-adik angkatan')
-                            ->maxLength(1000),
+                            ->default(date('Y'))
+                            ->columnSpan(1),
+                        
+                        Forms\Components\RichEditor::make('deskripsi')
+                            ->label('Deskripsi')
+                            ->columnSpanFull(),
+                    ])
+                    ->columns(2),
+
+                Forms\Components\Section::make('Pengaturan')
+                    ->schema([
                         Forms\Components\Toggle::make('is_active')
                             ->label('Tampilkan di Halaman Utama')
                             ->helperText('Aktifkan untuk menampilkan di halaman utama')
                             ->required()
                             ->default(true),
                     ])
-                    ->columns(2)
+                    ->collapsible()
             ]);
     }
 
@@ -83,23 +85,10 @@ class AlumniStoryResource extends Resource
                     ->circular()
                     ->defaultImageUrl(url('/images/default-avatar.png'))
                     ->label('Foto'),
-                Tables\Columns\TextColumn::make('nama')
-                    ->searchable()
-                    ->sortable()
-                    ->label('Nama Alumni'),
-                Tables\Columns\TextColumn::make('angkatan')
-                    ->searchable()
-                    ->sortable()
-                    ->label('Angkatan'),
-                Tables\Columns\TextColumn::make('pekerjaan')
-                    ->searchable()
-                    ->label('Pekerjaan'),
-                Tables\Columns\TextColumn::make('perusahaan')
-                    ->label('Perusahaan'),
                 Tables\Columns\TextColumn::make('testimoni')
                     ->limit(30)
                     ->searchable()
-                    ->label('Testimoni'),
+                    ->label('Konten'),
                 Tables\Columns\IconColumn::make('is_active')
                     ->boolean()
                     ->sortable()
@@ -114,8 +103,6 @@ class AlumniStoryResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                Tables\Filters\SelectFilter::make('angkatan')
-                    ->options(fn () => AlumniStory::query()->pluck('angkatan', 'angkatan')->unique()->toArray()),
                 Tables\Filters\TernaryFilter::make('is_active')
                     ->label('Status Aktif'),
             ])
