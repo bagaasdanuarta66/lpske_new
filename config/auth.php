@@ -48,12 +48,7 @@ return [
             'provider' => 'users', // Menggunakan provider 'users' yang sama
         ],
 
-        // Jika Anda membutuhkan API authentication
-        'api' => [
-            'driver' => 'sanctum',
-            'provider' => 'users',
-            'hash' => false,
-        ],
+
     ],
 
     /*

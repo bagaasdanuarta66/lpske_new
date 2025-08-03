@@ -4,7 +4,8 @@ namespace App\Filament\Resources\AnggotaAkunResource\Pages;
 
 use App\Filament\Resources\AnggotaAkunResource;
 use Filament\Resources\Pages\CreateRecord;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
+use Filament\Notifications\Notification;
 
 class CreateAnggota extends CreateRecord
 {
@@ -12,40 +13,79 @@ class CreateAnggota extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        // Simpan password plain untuk session
-        if (isset($data['password'])) {
-            session(['temp_plain_password' => $data['password']]);
-        }
-
-        // PAKSA role dan email_verified_at
+        // Set default role
         $data['role'] = 'anggota';
-        $data['email_verified_at'] = now();
+        
+        $plainPassword = null;
+        
+        // Handle password generation or manual input
+        if (isset($data['generate_random_password']) && $data['generate_random_password']) {
+            $plainPassword = $this->generateSecurePassword();
+            $data['password'] = Hash::make($plainPassword);
+            
+            Notification::make()
+                ->title('Password Acak Berhasil Dibuat')
+                ->body("Password untuk {$data['name']}: {$plainPassword}")
+                ->success()
+                ->duration(15000)
+                ->send();
+        } else {
+            // Ambil password yang diinput manual
+            $plainPassword = $data['password'] ?? null;
+            if ($plainPassword) {
+                $data['password'] = Hash::make($plainPassword);
+            }
+        }
+        
+        // Simpan encrypted password jika diperlukan
+        if ($plainPassword && isset($data['store_password_for_admin']) && $data['store_password_for_admin']) {
+            // Password akan disimpan melalui model method setelah create
+            $this->passwordToStore = $plainPassword;
+        }
+        
+        // Clean up form data
+        unset($data['generate_random_password']);
+        unset($data['store_password_for_admin']);
+        unset($data['password_confirmation']);
         
         return $data;
     }
 
+    private $passwordToStore = null;
+
     protected function afterCreate(): void
     {
-        // Ambil password plain dari session
-        $plainPassword = session('temp_plain_password');
+        // Simpan encrypted password setelah user dibuat
+        if ($this->passwordToStore && $this->record) {
+            $this->record->setPlainPasswordForAdmin($this->passwordToStore);
+        }
         
-        if ($plainPassword) {
-            // Simpan ke temp passwords session
-            $tempPasswords = session('temp_passwords', []);
-            $tempPasswords[$this->record->id] = $plainPassword;
-            session(['temp_passwords' => $tempPasswords]);
-            
-            // Hapus password sementara
-            session()->forget('temp_plain_password');
-        }
+        // Clear password dari memory
+        $this->passwordToStore = null;
+    }
 
-        // DOUBLE CHECK: Pastikan data benar tersimpan
-        if ($this->record->role !== 'anggota' || !$this->record->email_verified_at) {
-            $this->record->update([
-                'role' => 'anggota',
-                'email_verified_at' => now()
-            ]);
+    /**
+     * Generate secure password
+     */
+    private function generateSecurePassword(): string
+    {
+        $uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $lowercase = 'abcdefghijklmnopqrstuvwxyz';
+        $numbers = '0123456789';
+        $symbols = '!@#$%^&*';
+        
+        $password = '';
+        $password .= $uppercase[random_int(0, strlen($uppercase) - 1)];
+        $password .= $lowercase[random_int(0, strlen($lowercase) - 1)];
+        $password .= $numbers[random_int(0, strlen($numbers) - 1)];
+        $password .= $symbols[random_int(0, strlen($symbols) - 1)];
+        
+        $allChars = $uppercase . $lowercase . $numbers . $symbols;
+        for ($i = 4; $i < 12; $i++) {
+            $password .= $allChars[random_int(0, strlen($allChars) - 1)];
         }
+        
+        return str_shuffle($password);
     }
 
     protected function getRedirectUrl(): string
@@ -55,6 +95,6 @@ class CreateAnggota extends CreateRecord
 
     protected function getCreatedNotificationTitle(): ?string
     {
-        return 'Akun anggota berhasil dibuat!';
+        return 'Akun anggota berhasil dibuat dengan aman';
     }
 }

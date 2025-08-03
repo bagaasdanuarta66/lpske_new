@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            // Menggunakan text karena encrypted data bisa panjang
+            $table->text('encrypted_password_storage')->nullable()->after('password');
         });
     }
 
@@ -22,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('encrypted_password_storage');
         });
     }
 };
