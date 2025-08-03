@@ -17,7 +17,7 @@ class PeminjamanLabResource extends Resource
 {
     protected static ?string $model = PeminjamanLab::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-computer-desktop';
+    protected static ?string $navigationIcon = 'heroicon-o-beaker';
     protected static ?string $navigationGroup = 'Laboratorium';
     protected static ?string $modelLabel = 'Peminjaman Lab';
     protected static ?string $navigationLabel = 'Peminjaman Lab';
@@ -30,15 +30,12 @@ class PeminjamanLabResource extends Resource
                 Forms\Components\Section::make('Form Peminjaman Lab')
                     ->description('Isi form berikut untuk mengajukan peminjaman lab')
                     ->schema([
-                        Forms\Components\Select::make('lab')
-                            ->options([
-                                'Lab Komputer 1' => 'Lab Komputer 1',
-                                'Lab Komputer 2' => 'Lab Komputer 2',
-                                'Lab Jaringan' => 'Lab Jaringan',
-                                'Lab Multimedia' => 'Lab Multimedia',
-                            ])
-                            ->required()
-                            ->label('Laboratorium')
+                        Forms\Components\Hidden::make('lab')
+                            ->default('Laboratorium LPSKE')
+                            ->required(),
+                            
+                        Forms\Components\Placeholder::make('lab_info')
+                            ->label('Laboratorium LPSKE')
                             ->columnSpanFull(),
                             
                         Forms\Components\DateTimePicker::make('tanggal_pinjam')

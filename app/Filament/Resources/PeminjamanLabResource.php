@@ -19,7 +19,7 @@ class PeminjamanLabResource extends Resource
 {
     protected static ?string $model = PeminjamanLab::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-computer-desktop';
+    protected static ?string $navigationIcon = 'heroicon-o-beaker';
     protected static ?string $navigationGroup = 'Manajemen Lab';
     protected static ?string $modelLabel = 'Peminjaman Lab';
     protected static ?string $navigationLabel = 'Peminjaman Lab';

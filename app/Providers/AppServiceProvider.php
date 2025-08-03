@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Auth;
-use App\Auth\RoleUserProvider;
+use App\Models\User;
+use App\Observers\AnggotaObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,9 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Auth::provider('role_eloquent', function ($app, array $config) {
-            $roleCondition = $config['role'] ?? null;
-            return new RoleUserProvider($app['hash'], $config['model'], $roleCondition);
-        });
+        // Daftarkan observer untuk User model
+        User::observe(AnggotaObserver::class);
     }
 }

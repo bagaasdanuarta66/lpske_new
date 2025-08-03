@@ -14,9 +14,9 @@ class ListPeminjamanLabs extends ListRecords
     {
         return [
             Actions\CreateAction::make()
-                ->label('Ajukan Peminjaman Lab')
+                ->label('Buat Peminjaman Lab')
                 ->icon('heroicon-o-plus')
-                ->modalHeading('Ajukan Peminjaman Lab'),
+                ->modalHeading('Buat Peminjaman Lab'),
         ];
     }
 }

@@ -47,7 +47,6 @@ class AsistenPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Asisten/Widgets'), for: 'App\\Filament\\Asisten\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
