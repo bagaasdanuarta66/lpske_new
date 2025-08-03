@@ -18,7 +18,7 @@ class PrestasiKegiatanResource extends Resource
     protected static ?string $model = PrestasiKegiatan::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-star';
-    protected static ?string $navigationLabel = 'Prestasi & Kegiatan';
+    protected static ?string $navigationLabel = 'Dokumentasi: Prestasi & Kegiatan';
     protected static ?string $modelLabel = 'Prestasi & Kegiatan';
     protected static ?string $navigationGroup = 'Manajemen Website';
     protected static ?int $navigationSort = 2;
