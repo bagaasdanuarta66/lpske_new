@@ -23,7 +23,7 @@
                 <button class="nav-link {{ $activeMenu === 'dosen' ? 'active' : '' }}" 
                         id="dosen-tab" 
                         data-bs-toggle="tab" 
-                        data-bs-target="#dosen" 
+                        data-bs-target="dosen-laboratorium" 
                         type="button" 
                         role="tab" 
                         aria-controls="dosen" 
