@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->foreignId('asisten_id')
                 ->nullable()
-                ->constrained('teams')
+                ->constrained('users')
                 ->onDelete('set null');
             $table->timestamps();
         });

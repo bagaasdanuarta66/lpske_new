@@ -27,7 +27,7 @@ class Logbook extends Model
     
     public function asisten()
     {
-        return $this->belongsTo(\App\Models\Team::class, 'asisten_id')->withDefault([
+        return $this->belongsTo(\App\Models\User::class, 'asisten_id')->withDefault([
             'name' => 'Admin',
         ]);
     }

@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
                 <div class="text-center mb-4">
-                    <img src="{{ asset('images/lab-1.jpg') }}" alt="Laboratorium Ergonomi" class="img-fluid rounded">
+                    
                 </div>
                 <h6>Deskripsi:</h6>
                 <p>Laboratorium ini dilengkapi dengan peralatan pengukuran antropometri dan analisis postur kerja untuk mendukung praktikum dan penelitian di bidang ergonomi.</p>
@@ -24,11 +24,7 @@
                     <li>Kembalikan peralatan ke tempat semula setelah digunakan</li>
                 </ol>
                 
-                <h6 class="mt-4">Dokumen Terkait:</h6>
-                <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-file-pdf me-1"></i> Download SOP Lengkap</a>
-                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-file-word me-1"></i> Format Peminjaman</a>
-                </div>
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -42,12 +38,12 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="sopModal2Label">SOP Laboratorium Perancangan Sistem Kerja</h5>
+                <h5 class="modal-title" id="sopModal2Label">SOP Ruang Laboran</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="text-center mb-4">
-                    <img src="{{ asset('images/lab-2.jpg') }}" alt="Laboratorium Perancangan Sistem Kerja" class="img-fluid rounded">
+                    
                 </div>
                 <h6>Deskripsi:</h6>
                 <p>Fasilitas untuk praktikum dan penelitian di bidang perancangan sistem kerja, dilengkapi dengan berbagai peralatan pendukung.</p>
@@ -61,11 +57,7 @@
                     <li>Laporkan kerusakan atau kehilangan peralatan</li>
                 </ol>
                 
-                <h6 class="mt-4">Dokumen Terkait:</h6>
-                <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-file-pdf me-1"></i> Download SOP Lengkap</a>
-                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-file-word me-1"></i> Format Peminjaman</a>
-                </div>
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -84,7 +76,7 @@
             </div>
             <div class="modal-body">
                 <div class="text-center mb-4">
-                    <img src="{{ asset('images/lab-3.jpg') }}" alt="Ruang Diskusi" class="img-fluid rounded">
+                    
                 </div>
                 <h6>Deskripsi:</h6>
                 <p>Ruang diskusi yang nyaman untuk presentasi, diskusi kelompok, dan kegiatan akademik lainnya.</p>
@@ -98,11 +90,7 @@
                     <li>Kembalikan ruangan dalam keadaan rapi</li>
                 </ol>
                 
-                <h6 class="mt-4">Dokumen Terkait:</h6>
-                <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-file-pdf me-1"></i> Download SOP Lengkap</a>
-                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-file-word me-1"></i> Format Peminjaman</a>
-                </div>
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>

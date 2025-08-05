@@ -23,7 +23,7 @@
                 <button class="nav-link {{ $activeMenu === 'dosen' ? 'active' : '' }}" 
                         id="dosen-tab" 
                         data-bs-toggle="tab" 
-                        data-bs-target="dosen-laboratorium" 
+                        data-bs-target="#dosen" 
                         type="button" 
                         role="tab" 
                         aria-controls="dosen" 
@@ -73,26 +73,9 @@
                                             <dt class="col-sm-4">NIP</dt>
                                             <dd class="col-sm-8">{{ $kepala->nip }}</dd>
                                             @endif
-                                            
                                             @if($kepala->expertise)
                                             <dt class="col-sm-4">Bidang Keahlian</dt>
                                             <dd class="col-sm-8">{{ $kepala->expertise }}</dd>
-                                            @endif
-                                            
-                                            @if($kepala->email)
-                                            <dt class="col-sm-4">Email</dt>
-                                            <dd class="col-sm-8">
-                                                <a href="mailto:{{ $kepala->email }}">{{ $kepala->email }}</a>
-                                            </dd>
-                                            @endif
-                                            
-                                            @if($kepala->phone)
-                                            <dt class="col-sm-4">Telepon</dt>
-                                            <dd class="col-sm-8">
-                                                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $kepala->phone) }}" target="_blank">
-                                                    {{ $kepala->phone }}
-                                                </a>
-                                            </dd>
                                             @endif
                                         </dl>
                                         
@@ -140,26 +123,9 @@
                                             <dt class="col-sm-4">NIP</dt>
                                             <dd class="col-sm-8">{{ $d->nip }}</dd>
                                             @endif
-                                            
                                             @if($d->expertise)
                                             <dt class="col-sm-4">Bidang Keahlian</dt>
                                             <dd class="col-sm-8">{{ $d->expertise }}</dd>
-                                            @endif
-                                            
-                                            @if($d->email)
-                                            <dt class="col-sm-4">Email</dt>
-                                            <dd class="col-sm-8">
-                                                <a href="mailto:{{ $d->email }}">{{ $d->email }}</a>
-                                            </dd>
-                                            @endif
-                                            
-                                            @if($d->phone)
-                                            <dt class="col-sm-4">Telepon</dt>
-                                            <dd class="col-sm-8">
-                                                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $d->phone) }}" target="_blank">
-                                                    {{ $d->phone }}
-                                                </a>
-                                            </dd>
                                             @endif
                                         </dl>
                                         
@@ -209,42 +175,44 @@
                 <div class="row g-4">
                     @foreach($asisten as $a)
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 shadow-sm">
-                            <div class="text-center mt-4">
-                                <img src="{{ $a->photo ? asset('storage/' . $a->photo) : asset('images/avatar-placeholder.png') }}" 
-                                     class="rounded-circle" 
-                                     width="150" 
-                                     height="150" 
-                                     alt="{{ $a->name }}"
-                                     style="object-fit: cover;">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">{{ $a->name }}</h5>
-                                @if($a->nim)
-                                <p class="text-muted">NIM: {{ $a->nim }}</p>
-                                @endif
-                                <p class="card-text">
-                                    @if($a->study_program)
-                                    <span class="badge bg-primary">{{ $a->study_program }}</span>
-                                    @endif
-                                    @if($a->angkatan)
-                                    <span class="badge bg-secondary">Angkatan {{ $a->angkatan }}</span>
-                                    @endif
-                                </p>
-                                <div class="mt-3">
-                                    @if($a->email)
-                                    <a href="mailto:{{ $a->email }}" class="btn btn-sm btn-outline-primary me-2" title="Email">
-                                        <i class="bi bi-envelope"></i>
-                                    </a>
-                                    @endif
-                                    @if($a->phone)
-                                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $a->phone) }}" 
-                                       class="btn btn-sm btn-outline-success" 
-                                       target="_blank"
-                                       title="WhatsApp">
-                                        <i class="bi bi-whatsapp"></i>
-                                    </a>
-                                    @endif
+                        <div class="card h-100 shadow-sm border-0 rounded-4 hover-shadow transition-all">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="bg-gradient-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                        <i class="fas fa-user-graduate text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="card-title fw-bold text-primary mb-0">{{ $a->name }}</h6>
+                                        <small class="text-muted">Asisten LPSKE</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-borderless mb-0">
+                                        <tbody>
+                                            @if($a->nim)
+                                            <tr>
+                                                <td class="text-muted" style="width: 30px;"><i class="fas fa-id-card"></i></td>
+                                                <td class="text-muted small">NIM:</td>
+                                                <td class="small">{{ $a->nim }}</td>
+                                            </tr>
+                                            @endif
+                                            @if($a->angkatan)
+                                            <tr>
+                                                <td class="text-muted"><i class="fas fa-calendar-alt"></i></td>
+                                                <td class="text-muted small">Angkatan:</td>
+                                                <td class="small">{{ $a->angkatan }}</td>
+                                            </tr>
+                                            @endif
+                                            @if($a->study_program)
+                                            <tr>
+                                                <td class="text-muted"><i class="fas fa-graduation-cap"></i></td>
+                                                <td class="text-muted small">Program:</td>
+                                                <td class="small">{{ $a->study_program }}</td>
+                                            </tr>
+                                            @endif
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>

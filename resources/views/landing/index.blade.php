@@ -16,9 +16,7 @@
                         <a href="#about" class="btn btn-gradient btn-lg shadow px-4 py-2" style="background: linear-gradient(90deg, #007bff 0%, #00c6ff 100%); color: #fff; border: none;">
                             <i class="fas fa-info-circle me-2"></i> Tentang Kami
                         </a>
-                        <a href="#contact" class="btn btn-outline-primary btn-lg shadow px-4 py-2">
-                            <i class="fas fa-envelope me-2"></i> Hubungi Kami
-                        </a>
+                        
                     </div>
                 </div>
                 <div class="col-lg-5 mb-5 mb-lg-0 text-center animate__animated animate__zoomIn">
@@ -89,72 +87,7 @@
     </section>
 
     <!-- Logbook Section -->
-    @if(isset($recentLogbooks) && $recentLogbooks->count() > 0)
-    <section class="py-5" style="background: linear-gradient(120deg, #f8fafc 60%, #e0eafc 100%);">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title fw-bold text-primary"><i class="fas fa-clipboard-list me-2"></i> Aktivitas Terkini</h2>
-                <p class="text-muted">Catatan kegiatan terbaru dari asisten laboratorium</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="timeline">
-                        @foreach($recentLogbooks as $logbook)
-                        <div class="timeline-item mb-5">
-                            <div class="card border-0 shadow-lg rounded-4">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <h3 class="h5 mb-0 text-primary fw-bold">
-                                            <i class="fas fa-tasks me-2"></i>{{ $logbook->activity }}
-                                        </h3>
-                                        <div>
-                                            @if($logbook->date && $logbook->date->isToday())
-                                            <span class="badge bg-gradient-primary" style="background: linear-gradient(90deg,#007bff,#00c6ff);color:#fff;">Hari Ini</span>
-                                            @elseif($logbook->date && $logbook->date->isYesterday())
-                                            <span class="badge bg-secondary">Kemarin</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    @if($logbook->date)
-                                    <p class="text-muted mb-2">
-                                        <i class="far fa-calendar-alt me-1"></i>
-                                        {{ $logbook->date->format('l, d F Y') }}
-                                        @if($logbook->asisten)
-                                        <span class="ms-3">
-                                            <i class="fas fa-user-tie me-1"></i>
-                                            {{ $logbook->asisten->name }}
-                                        </span>
-                                        @endif
-                                    </p>
-                                    @endif
-                                    @if(!empty($logbook->description))
-                                    <div class="logbook-content mt-3 fs-6" style="color:#222;">
-                                        {!! nl2br(e($logbook->description)) !!}
-                                    </div>
-                                    @endif
-                                    <div class="mt-3 text-muted small">
-                                        <i class="far fa-clock me-1"></i>
-                                        {{ $logbook->created_at->diffForHumans() }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    @else
-    <section class="py-5" style="background: linear-gradient(120deg, #f8fafc 60%, #e0eafc 100%);">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-title text-center fw-bold text-primary"><i class="fas fa-clipboard-list me-2"></i> Logbooks</h2>
-                <p class="text-muted mb-4">Belum ada catatan kegiatan terbaru</p>
-            </div>
-        </div>
-    </section>
-    @endif
+
 
     <!-- Facilities Section -->
     <section class="py-5" id="facilities" style="background: #f8fafc;">
@@ -164,11 +97,11 @@
                 <div class="col-md-4">
                     <div class="card h-100 shadow-lg border-0 rounded-4 hover-shadow transition-all">
                         <div class="position-relative">
-                            <img src="{{ asset('images/lab-1.jpg') }}" class="card-img-top rounded-top-4" alt="Lab 1" style="height:220px;object-fit:cover;">
-                            <span class="badge bg-gradient-primary position-absolute top-0 end-0 m-3" style="background: linear-gradient(90deg,#007bff,#00c6ff);color:#fff;">Ergonomi</span>
+                            
+                            <span class="badge bg-gradient-primary position-absolute top-0 end-0 m-3" style="background: linear-gradient(90deg,#007bff,#00c6ff);color:#fff;">Sistem kerja</span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title fw-bold">Laboratorium Ergonomi</h5>
+                            <h5 class="card-title fw-bold">Laboratorium </h5>
                             <p class="card-text">Dilengkapi dengan peralatan pengukuran antropometri dan analisis postur kerja.</p>
                             <button type="button" class="btn btn-gradient w-100 mt-2" data-bs-toggle="modal" data-bs-target="#sopModal1" style="background: linear-gradient(90deg,#007bff,#00c6ff);color:#fff;">
                                 <i class="fas fa-file-alt me-2"></i> Lihat SOP
@@ -179,12 +112,12 @@
                 <div class="col-md-4">
                     <div class="card h-100 shadow-lg border-0 rounded-4 hover-shadow transition-all">
                         <div class="position-relative">
-                            <img src="{{ asset('images/lab-2.jpg') }}" class="card-img-top rounded-top-4" alt="Lab 2" style="height:220px;object-fit:cover;">
-                            <span class="badge bg-gradient-primary position-absolute top-0 end-0 m-3" style="background: linear-gradient(90deg,#007bff,#00c6ff);color:#fff;">Sistem Kerja</span>
+                            
+                            <span class="badge bg-gradient-primary position-absolute top-0 end-0 m-3" style="background: linear-gradient(90deg,#007bff,#00c6ff);color:#fff;">Laboran</span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title fw-bold">Laboratorium Perancangan Sistem Kerja</h5>
-                            <p class="card-text">Fasilitas untuk praktikum dan penelitian di bidang perancangan sistem kerja.</p>
+                            <h5 class="card-title fw-bold">Ruang Laboran</h5>
+                            <p class="card-text">Didalamnya terdapat ruang iklim dan ruang dosen.</p>
                             <button type="button" class="btn btn-gradient w-100 mt-2" data-bs-toggle="modal" data-bs-target="#sopModal2" style="background: linear-gradient(90deg,#007bff,#00c6ff);color:#fff;">
                                 <i class="fas fa-file-alt me-2"></i> Lihat SOP
                             </button>
@@ -194,12 +127,12 @@
                 <div class="col-md-4">
                     <div class="card h-100 shadow-lg border-0 rounded-4 hover-shadow transition-all">
                         <div class="position-relative">
-                            <img src="{{ asset('images/lab-3.jpg') }}" class="card-img-top rounded-top-4" alt="Lab 3" style="height:220px;object-fit:cover;">
+                            
                             <span class="badge bg-gradient-primary position-absolute top-0 end-0 m-3" style="background: linear-gradient(90deg,#007bff,#00c6ff);color:#fff;">Diskusi</span>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title fw-bold">Ruang Diskusi</h5>
-                            <p class="card-text">Tempat diskusi dan presentasi untuk mahasiswa dan peneliti.</p>
+                            <h5 class="card-title fw-bold">Ruang Rapat</h5>
+                            <p class="card-text">Tempat diskusi dan presentasi untuk mahasiswa dan peneliti .</p>
                             <button type="button" class="btn btn-gradient w-100 mt-2" data-bs-toggle="modal" data-bs-target="#sopModal3" style="background: linear-gradient(90deg,#007bff,#00c6ff);color:#fff;">
                                 <i class="fas fa-file-alt me-2"></i> Lihat SOP
                             </button>
@@ -224,28 +157,46 @@
             </div>
             <div class="row g-4">
                 @forelse($asisten as $asistenItem)
-                <div class="col-md-4">
-                    <div class="card h-100 text-center border-0 shadow-lg rounded-4 hover-shadow transition-all">
-                        <div class="position-relative" style="height: 220px; overflow: hidden;">
-                            @if($asistenItem->photo)
-                                <img src="{{ asset('storage/' . $asistenItem->photo) }}" class="card-img-top w-100 h-100 rounded-top-4" alt="{{ $asistenItem->name }}" style="object-fit: cover;">
-                            @else
-                                <div class="d-flex align-items-center justify-content-center bg-light w-100 h-100 rounded-top-4" style="height:220px;">
-                                    <i class="fas fa-user fa-5x text-muted"></i>
-                                </div>
-                            @endif
-                        </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-lg rounded-4 hover-shadow transition-all">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold text-primary">{{ $asistenItem->name }}</h5>
-                            @if($asistenItem->nim)
-                                <p class="card-text text-muted mb-1"><i class="fas fa-id-card me-1"></i> NIM: {{ $asistenItem->nim }}</p>
-                            @endif
-                            @if($asistenItem->angkatan)
-                                <p class="card-text mb-1"><i class="fas fa-calendar-alt me-1"></i> Angkatan: {{ $asistenItem->angkatan }}</p>
-                            @endif
-                            @if($asistenItem->study_program)
-                                <p class="card-text"><i class="fas fa-graduation-cap me-1"></i> {{ $asistenItem->study_program }}</p>
-                            @endif
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-gradient-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                    <i class="fas fa-user-graduate text-white"></i>
+                                </div>
+                                <div>
+                                    <h6 class="card-title fw-bold text-primary mb-0">{{ $asistenItem->name }}</h6>
+                                    <small class="text-muted">Asisten LPSKE</small>
+                                </div>
+                            </div>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-borderless mb-0">
+                                    <tbody>
+                                        @if($asistenItem->nim)
+                                        <tr>
+                                            <td class="text-muted" style="width: 30px;"><i class="fas fa-id-card"></i></td>
+                                            <td class="text-muted small">NIM:</td>
+                                            <td class="small">{{ $asistenItem->nim }}</td>
+                                        </tr>
+                                        @endif
+                                        @if($asistenItem->angkatan)
+                                        <tr>
+                                            <td class="text-muted"><i class="fas fa-calendar-alt"></i></td>
+                                            <td class="text-muted small">Angkatan:</td>
+                                            <td class="small">{{ $asistenItem->angkatan }}</td>
+                                        </tr>
+                                        @endif
+                                        @if($asistenItem->study_program)
+                                        <tr>
+                                            <td class="text-muted"><i class="fas fa-graduation-cap"></i></td>
+                                            <td class="text-muted small">Program:</td>
+                                            <td class="small">{{ $asistenItem->study_program }}</td>
+                                        </tr>
+                                        @endif
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -258,134 +209,7 @@
         </div>
     </section>
 
-    <!-- Alumni Story Section -->
-    <section class="py-5" id="alumni" style="background: #f8fafc;">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title text-center fw-bold text-primary"><i class="fas fa-user-graduate me-2"></i> Kisah Inspiratif Alumni</h2>
-                <p class="lead text-muted">Temukan pengalaman dan kesuksesan para alumni kami</p>
-            </div>
-            <div class="row g-4">
-                @php
-                    $featuredAlumni = \App\Models\AlumniStory::where('is_active', true)
-                        ->orderBy('angkatan', 'desc')
-                        ->take(3)
-                        ->get();
-                @endphp
-                @forelse($featuredAlumni as $alumni)
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow-lg rounded-4 hover-shadow transition-all">
-                        <div class="position-relative" style="height: 260px; overflow: hidden;">
-                            @if($alumni->foto)
-                                <img src="{{ asset('storage/' . $alumni->foto) }}" 
-                                     class="card-img-top w-100 h-100 rounded-top-4" 
-                                     alt="{{ $alumni->nama }}" 
-                                     style="object-fit: cover; transition: transform 0.3s ease;"
-                                     onmouseover="this.style.transform='scale(1.05)'"
-                                     onmouseout="this.style.transform='scale(1)'">
-                            @else
-                                <div class="d-flex align-items-center justify-content-center bg-light w-100 h-100 rounded-top-4" style="height:260px;">
-                                    <i class="fas fa-user-graduate fa-5x text-muted"></i>
-                                </div>
-                            @endif
-                            <div class="position-absolute bottom-0 start-0 w-100 p-3" style="background: linear-gradient(transparent, rgba(0,0,0,0.7));">
-                                <h5 class="text-white mb-0">{{ $alumni->nama }}</h5>
-                                <span class="text-white-50">Angkatan {{ $alumni->angkatan }}</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            @if($alumni->pekerjaan || $alumni->perusahaan)
-                                <p class="text-primary mb-2">
-                                    <i class="fas fa-briefcase me-2"></i>
-                                    @if($alumni->pekerjaan && $alumni->perusahaan)
-                                        {{ $alumni->pekerjaan }} di {{ $alumni->perusahaan }}
-                                    @elseif($alumni->pekerjaan)
-                                        {{ $alumni->pekerjaan }}
-                                    @else
-                                        {{ $alumni->perusahaan }}
-                                    @endif
-                                </p>
-                            @endif
-                            @if($alumni->testimoni)
-                                <div class="testimonial-text mb-3 text-dark" style="min-height: 70px;">
-                                    <i class="fas fa-quote-left text-muted me-2"></i>
-                                    {{ \Illuminate\Support\Str::limit($alumni->testimoni, 180) }}
-                                </div>
-                            @endif
-                        </div>
-                        <div class="card-footer bg-transparent border-0 pt-0">
-                            <button type="button" class="btn btn-gradient btn-sm px-3" data-bs-toggle="modal" data-bs-target="#alumniModal{{ $alumni->id }}" style="background: linear-gradient(90deg,#007bff,#00c6ff);color:#fff;">
-                                Baca Selengkapnya <i class="fas fa-arrow-right ms-1"></i>
-                            </button>
-                        </div>
-                        <!-- Alumni Modal -->
-                        <div class="modal fade" id="alumniModal{{ $alumni->id }}" tabindex="-1" aria-labelledby="alumniModalLabel{{ $alumni->id }}" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-lg">
-                                <div class="modal-content rounded-4">
-                                    <div class="modal-header border-0">
-                                        <h5 class="modal-title fw-bold text-primary">Kisah {{ $alumni->nama }}</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-md-4 text-center">
-                                                @if($alumni->foto)
-                                                    <img src="{{ asset('storage/' . $alumni->foto) }}" class="img-fluid rounded-circle mb-3 shadow" alt="{{ $alumni->nama }}" style="width: 180px; height: 180px; object-fit: cover;">
-                                                @else
-                                                    <div class="d-flex align-items-center justify-content-center bg-light rounded-circle mb-3" style="width: 180px; height: 180px; margin: 0 auto;">
-                                                        <i class="fas fa-user-graduate fa-4x text-muted"></i>
-                                                    </div>
-                                                @endif
-                                                <h4 class="mb-1">{{ $alumni->nama }}</h4>
-                                                <p class="text-muted mb-2">Angkatan {{ $alumni->angkatan }}</p>
-                                                @if($alumni->pekerjaan || $alumni->perusahaan)
-                                                    <p class="text-primary">
-                                                        <i class="fas fa-briefcase me-2"></i>
-                                                        @if($alumni->pekerjaan && $alumni->perusahaan)
-                                                            {{ $alumni->pekerjaan }} di {{ $alumni->perusahaan }}
-                                                        @elseif($alumni->pekerjaan)
-                                                            {{ $alumni->pekerjaan }}
-                                                        @else
-                                                            {{ $alumni->perusahaan }}
-                                                        @endif
-                                                    </p>
-                                                @endif
-                                            </div>
-                                            <div class="col-md-8">
-                                                <h5 class="mb-3 fw-bold text-primary">Kisah Inspiratif</h5>
-                                                <div class="testimonial-text fs-5 text-dark">
-                                                    {!! nl2br(e($alumni->testimoni)) !!}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer border-0">
-                                        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Tutup</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @empty
-                <div class="col-12">
-                    <div class="text-center py-5">
-                        <div class="display-1 text-muted mb-3">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <h3>Belum Ada Cerita Alumni</h3>
-                        <p class="lead">Cerita inspiratif dari alumni akan segera hadir</p>
-                    </div>
-                </div>
-                @endforelse
-            </div>
-            <div class="text-center mt-5">
-                <a href="{{ route('public.alumni.index') }}" class="btn btn-gradient px-4 py-2" style="background: linear-gradient(90deg,#007bff,#00c6ff);color:#fff;">
-                    <i class="fas fa-book-reader me-2"></i> Lihat Semua Cerita Alumni
-                </a>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- Featured Content Section -->
     <section class="py-5" id="prestasi-kegiatan" style="background: linear-gradient(120deg, #e0eafc 0%, #f8fafc 100%);">

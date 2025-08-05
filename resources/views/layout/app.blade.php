@@ -196,23 +196,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('home') }}#home">Beranda</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="asistenDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Asisten Laboratorium
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="asistenDropdown">
-                            <li><a class="dropdown-item" href="{{ route('asisten-laboratorium') }}">Semua Asisten</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ route('asisten-laboratorium', ['angkatan' => 2020]) }}">Angkatan 2020</a></li>
-                            <li><a class="dropdown-item" href="{{ route('asisten-laboratorium', ['angkatan' => 2019]) }}">Angkatan 2019</a></li>
-                            <li><a class="dropdown-item" href="{{ route('asisten-laboratorium', ['angkatan' => 2018]) }}">Angkatan 2018</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{{ route('kepala-laboratorium') }}">Kepala Laboratorium</a></li>
-                            <li><a class="dropdown-item" href="{{ route('dosen-laboratorium') }}">Dosen Laboratorium</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('asisten-laboratorium') }}">Tim Laboratorium</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('prestasi-kegiatan.index') }}">Prestasi & Kegiatan</a>
+                        <a class="nav-link" href="{{ route('prestasi-kegiatan.index') }}">Dokumentasi</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('public.alumni.index') }}">Alumni</a>
@@ -251,8 +239,8 @@
                         <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Ir.+Sutami+36A,+Surakarta" target="_blank" class="text-decoration-none text-white">
                             <i class="fas fa-map-marker-alt me-2"></i> Jl. Ir. Sutami 36A, Surakarta
                         </a><br>
-                        <a href="https://wa.me/6281230448373" target="_blank" class="text-decoration-none text-white">
-                            <i class="fab fa-whatsapp me-2"></i> 0812 3044 8373
+                        <a href="https://wa.me/#" target="_blank" class="text-decoration-none text-white">
+                            <i class="fab fa-whatsapp me-2"></i> 0888 8888 8888
                         </a><br>
                         <a href="https://www.instagram.com/lpske_tiuns/" class="text-decoration-none text-white">
                             <i class="fas fa-envelope me-2"></i> lpske_tiuns

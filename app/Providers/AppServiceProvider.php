@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Models\User;
 use App\Observers\AnggotaObserver;
+use App\Observers\AsistenObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,5 +24,6 @@ class AppServiceProvider extends ServiceProvider
     {
         // Daftarkan observer untuk User model
         User::observe(AnggotaObserver::class);
+        User::observe(AsistenObserver::class);
     }
 }

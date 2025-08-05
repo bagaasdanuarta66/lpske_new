@@ -70,7 +70,12 @@ class AsistenAkunResource extends Resource
                     ->label('Terverifikasi Pada')
                     ->dateTime('d/m/Y H:i')
                     ->sortable()
-                    ->default('-'),
+                    ->getStateUsing(function ($record) {
+                        return $record->email_verified_at 
+                            ? $record->email_verified_at->format('d/m/Y H:i')
+                            : null;
+                    })
+                    ->placeholder('Belum terverifikasi'),
                 Tables\Columns\TextColumn::make('password')
                     ->getStateUsing(fn () => '••••••••')
                     ->label('Password')
@@ -137,38 +142,25 @@ class AsistenAkunResource extends Resource
     public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder
     {
         return parent::getEloquentQuery()
-            ->whereHas('roles', function($query) {
-                $query->where('name', 'asisten');
-            })
+            ->where('role', 'asisten')
             ->orderBy('created_at', 'desc');
     }
 
     public static function create(Form $form, array $data = []): Model
     {
         $data['email_verified_at'] = now();
+        $data['role'] = 'asisten';
         
         $user = static::getModel()::create($data);
-        
-        // Assign role
-        if (!\Spatie\Permission\Models\Role::where('name', 'asisten')->exists()) {
-            \Spatie\Permission\Models\Role::create([
-                'name' => 'asisten', 
-                'guard_name' => 'web'
-            ]);
-        }
-        $user->syncRoles(['asisten']);
         
         return $user;
     }
 
     public static function update(Form $form, Model $record, array $data): Model
     {
+        $data['role'] = 'asisten';
         $record->update($data);
-        $record->syncRoles([
-            \Spatie\Permission\Models\Role::firstOrCreate(
-                ['name' => 'asisten', 'guard_name' => 'web']
-            )
-        ]);
+        
         return $record;
     }
 }

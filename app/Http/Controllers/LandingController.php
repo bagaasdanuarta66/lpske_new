@@ -85,7 +85,18 @@ class LandingController extends Controller
             ->orderBy('angkatan', 'desc')
             ->pluck('angkatan');
 
-        return view('asisten-laboratorium.index', compact('asisten', 'activeMenu', 'angkatan', 'angkatanList'));
+        // Ambil data kepala laboratorium
+        $kepala = Team::where('type', 'kepala')
+            ->where('is_active', true)
+            ->first();
+
+        // Ambil data dosen
+        $dosen = Team::where('type', 'dosen')
+            ->where('is_active', true)
+            ->orderBy('name', 'asc')
+            ->get();
+
+        return view('asisten-laboratorium.index', compact('asisten', 'activeMenu', 'angkatan', 'angkatanList', 'kepala', 'dosen'));
     }
 
     /**
@@ -159,8 +170,19 @@ class LandingController extends Controller
             ->distinct('angkatan')
             ->orderBy('angkatan', 'desc')
             ->pluck('angkatan');
-            
-        return view('asisten-laboratorium.index', compact('asisten', 'activeMenu', 'angkatan', 'angkatanList'));
+
+        // Ambil data kepala laboratorium
+        $kepala = Team::where('type', 'kepala')
+            ->where('is_active', true)
+            ->first();
+
+        // Ambil data dosen
+        $dosen = Team::where('type', 'dosen')
+            ->where('is_active', true)
+            ->orderBy('name', 'asc')
+            ->get();
+
+        return view('asisten-laboratorium.index', compact('asisten', 'activeMenu', 'angkatan', 'angkatanList', 'kepala', 'dosen'));
     }
 
     // Method prestasiKegiatan dipindahkan ke PrestasiKegiatanController

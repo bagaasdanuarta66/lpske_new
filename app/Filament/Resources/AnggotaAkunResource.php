@@ -144,7 +144,12 @@ class AnggotaAkunResource extends Resource
                     ->label('Terverifikasi Pada')
                     ->dateTime('d/m/Y H:i')
                     ->sortable()
-                    ->placeholder('-')
+                    ->getStateUsing(function ($record) {
+                        return $record->email_verified_at 
+                            ? $record->email_verified_at->format('d/m/Y H:i')
+                            : null;
+                    })
+                    ->placeholder('Belum terverifikasi')
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Dibuat Pada')

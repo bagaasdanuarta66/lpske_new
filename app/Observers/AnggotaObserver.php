@@ -11,8 +11,8 @@ class AnggotaObserver
      */
     public function creating(User $user): void
     {
-        // Cek apakah request dari AnggotaAkunResource
-        if ($this->isFromAnggotaResource()) {
+        // Cek apakah request dari AnggotaAkunResource dan role adalah anggota
+        if ($this->isFromAnggotaResource() && $user->role === 'anggota') {
             $user->role = 'anggota';
             $user->email_verified_at = now();
             
@@ -30,7 +30,7 @@ class AnggotaObserver
      */
     public function created(User $user): void
     {
-        if ($this->isFromAnggotaResource()) {
+        if ($this->isFromAnggotaResource() && $user->role === 'anggota') {
             // Ambil password plain dari session sementara
             $plainPassword = request()->session()->pull('pending_password');
             
@@ -47,7 +47,7 @@ class AnggotaObserver
      */
     public function updating(User $user): void
     {
-        if ($this->isFromAnggotaResource()) {
+        if ($this->isFromAnggotaResource() && $user->role === 'anggota') {
             $user->role = 'anggota';
             
             // Jika email_verified_at kosong, isi dengan waktu sekarang
