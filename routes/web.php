@@ -35,3 +35,6 @@ Route::get('/recent-logbook', [LogbookController::class, 'getRecentLogbook'])->n
 // Public route for alumni
 Route::get('/alumni', [\App\Http\Controllers\AlumniStoryController::class, 'index'])
     ->name('public.alumni.index');
+
+// Kolaborator route
+Route::get('/kolaborator', [LandingController::class, 'kolaborator'])->name('kolaborator');

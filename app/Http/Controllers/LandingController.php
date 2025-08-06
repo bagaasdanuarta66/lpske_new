@@ -185,5 +185,15 @@ class LandingController extends Controller
         return view('asisten-laboratorium.index', compact('asisten', 'activeMenu', 'angkatan', 'angkatanList', 'kepala', 'dosen'));
     }
 
+    /**
+     * Display kolaborator page.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function kolaborator()
+    {
+        return view('kolaborator.index');
+    }
+
     // Method prestasiKegiatan dipindahkan ke PrestasiKegiatanController
 }
