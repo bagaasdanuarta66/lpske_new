@@ -10,49 +10,60 @@
         <ul class="nav nav-tabs mb-4" id="kolaboratorTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" 
-                        id="developer-tab" 
+                        id="smk2-tab" 
                         data-bs-toggle="tab" 
-                        data-bs-target="#developer" 
+                        data-bs-target="#smk2" 
                         type="button" 
                         role="tab" 
-                        aria-controls="developer" 
+                        aria-controls="smk2" 
                         aria-selected="true">
-                    Developer
+                    SMK N 2 Surakarta
                 </button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" 
-                        id="designer-tab" 
+                        id="enuma-tab" 
                         data-bs-toggle="tab" 
-                        data-bs-target="#designer" 
+                        data-bs-target="#enuma" 
                         type="button" 
                         role="tab" 
-                        aria-controls="designer" 
+                        aria-controls="enuma" 
                         aria-selected="false">
-                    UI/UX Designer
+                    Enuma Technology
                 </button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" 
-                        id="supervisor-tab" 
+                        id="aslab-tab" 
                         data-bs-toggle="tab" 
-                        data-bs-target="#supervisor" 
+                        data-bs-target="#aslab" 
                         type="button" 
                         role="tab" 
-                        aria-controls="supervisor" 
+                        aria-controls="aslab" 
                         aria-selected="false">
-                    Supervisor
+                    Asisten Laboratorium LPSKE
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" 
+                        id="mersif-tab" 
+                        data-bs-toggle="tab" 
+                        data-bs-target="#mersif" 
+                        type="button" 
+                        role="tab" 
+                        aria-controls="mersif" 
+                        aria-selected="false">
+                    Mersiflab
                 </button>
             </li>
         </ul>
-        
         <!-- Tab Content -->
         <div class="tab-content" id="kolaboratorTabsContent">
             <!-- Developer Tab -->
             <div class="tab-pane fade show active" 
-                 id="developer" 
+                 id="smk2" 
                  role="tabpanel" 
-                 aria-labelledby="developer-tab">
+                 aria-labelledby="smk2-tab">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 shadow-sm hover-shadow transition-all">
@@ -64,15 +75,7 @@
                                 </div>
                                 <h5 class="card-title">Nama Developer 1</h5>
                                 <p class="text-muted mb-2">Full Stack Developer</p>
-                                <p class="card-text small">Bertanggung jawab dalam pengembangan backend dan frontend website LPSKE</p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <a href="#" class="btn btn-outline-primary btn-sm">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-outline-primary btn-sm">
-                                        <i class="fab fa-linkedin"></i>
-                                    </a>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -87,15 +90,7 @@
                                 </div>
                                 <h5 class="card-title">Nama Developer 2</h5>
                                 <p class="text-muted mb-2">Frontend Developer</p>
-                                <p class="card-text small">Fokus pada pengembangan antarmuka pengguna dan pengalaman pengguna</p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <a href="#" class="btn btn-outline-success btn-sm">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-outline-success btn-sm">
-                                        <i class="fab fa-linkedin"></i>
-                                    </a>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -104,9 +99,9 @@
             
             <!-- Designer Tab -->
             <div class="tab-pane fade" 
-                 id="designer" 
+                 id="enuma" 
                  role="tabpanel" 
-                 aria-labelledby="designer-tab">
+                 aria-labelledby="enuma-tab">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 shadow-sm hover-shadow transition-all">
@@ -135,9 +130,64 @@
             
             <!-- Supervisor Tab -->
             <div class="tab-pane fade" 
-                 id="supervisor" 
+                 id="aslab" 
                  role="tabpanel" 
-                 aria-labelledby="supervisor-tab">
+                 aria-labelledby="aslab-tab">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm hover-shadow transition-all">
+                            <div class="card-body text-center">
+                                <div class="mb-3">
+                                    <div class="rounded-circle bg-info bg-gradient d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                        <i class="fas fa-user-tie text-white" style="font-size: 2rem;"></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title">Nama Supervisor 1</h5>
+                                <p class="text-muted mb-2">Project Supervisor</p>
+                                <p class="card-text small">Mengawasi dan memberikan arahan dalam pengembangan proyek website LPSKE</p>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <a href="#" class="btn btn-outline-info btn-sm">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-outline-info btn-sm">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 shadow-sm hover-shadow transition-all">
+                            <div class="card-body text-center">
+                                <div class="mb-3">
+                                    <div class="rounded-circle bg-secondary bg-gradient d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                        <i class="fas fa-chalkboard-teacher text-white" style="font-size: 2rem;"></i>
+                                    </div>
+                                </div>
+                                <h5 class="card-title">Nama Supervisor 2</h5>
+                                <p class="text-muted mb-2">Technical Advisor</p>
+                                <p class="card-text small">Memberikan konsultasi teknis dan panduan pengembangan sistem</p>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+            <!-- Mersiflab Tab -->
+            <div class="tab-pane fade" 
+                 id="mersif" 
+                 role="tabpanel" 
+                 aria-labelledby="mersif-tab">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4">
                         <div class="card h-100 shadow-sm hover-shadow transition-all">

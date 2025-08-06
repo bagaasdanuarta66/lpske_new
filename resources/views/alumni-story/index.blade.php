@@ -108,7 +108,12 @@
                                         <div class="col-md-8">
                                             <h5 class="mb-3">Kisah Inspiratif</h5>
                                             <div class="testimonial-text">
-                                                {!! nl2br(e($alumni->testimoni)) !!}
+                                                @if($alumni->deskripsi)
+                                                {!! $alumni->deskripsi !!}
+
+                                                @else
+                                                    <p class="text-muted">Tidak ada deskripsi yang tersedia.</p>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

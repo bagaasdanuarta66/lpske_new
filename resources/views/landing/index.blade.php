@@ -287,79 +287,50 @@
     </div>
     @endfor
 
-    <!-- Credit Section -->
     <section class="py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-        <div class="container">
-            <div class="row align-items-center justify-content-center text-center">
-                <div class="col-lg-8">
-                    <div class="d-flex align-items-center justify-content-center mb-4">
-                        <!-- Placeholder for logo -->
-                        <div class="me-3" style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-users" style="font-size: 24px; color: white;"></i>
-                        </div>
-                        <div>
-                            <h3 class="mb-2 fw-bold">Kolaborasi Proyek</h3>
-                            <p class="mb-0 opacity-75">Proyek ini merupakan hasil kolaborasi tim yang luar biasa</p>
-                        </div>
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-center justify-content-center mb-4">
+                    <div class="me-3" style="width: 60px; height: 60px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-users" style="font-size: 24px; color: white;"></i>
                     </div>
-                    
-                    <p class="lead mb-4 opacity-90">
-                        Website LPSKE ini dikembangkan melalui kerja sama yang solid antara berbagai pihak yang berkontribusi dalam pengembangan sistem informasi laboratorium.
-                    </p>
-                    
-                    <!-- Photo Row Section -->
-                    <div class="d-flex justify-content-center align-items-center mb-4 flex-wrap gap-3">
-                        <!-- Avatar 1 -->
-                        <div class="position-relative">
-                            <img src="{{ asset('images/avatar-1.jpg') }}" alt="Kolaborator 1" 
-                                 class="rounded-circle border border-3 border-white shadow" 
-                                 style="width: 60px; height: 60px; object-fit: cover;" 
-                                 onerror="this.src='https://ui-avatars.com/api/?name=Dev+1&background=007bff&color=fff&size=60'">
-                            <div class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white" 
-                                 style="width: 18px; height: 18px;" title="Online"></div>
-                        </div>
-                        
-                        <!-- Avatar 2 -->
-                        <div class="position-relative">
-                            <img src="{{ asset('images/avatar-2.jpg') }}" alt="Kolaborator 2" 
-                                 class="rounded-circle border border-3 border-white shadow" 
-                                 style="width: 60px; height: 60px; object-fit: cover;" 
-                                 onerror="this.src='https://ui-avatars.com/api/?name=Dev+2&background=28a745&color=fff&size=60'">
-                            <div class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white" 
-                                 style="width: 18px; height: 18px;" title="Online"></div>
-                        </div>
-                        
-                        <!-- Avatar 3 -->
-                        <div class="position-relative">
-                            <img src="{{ asset('images/avatar-3.jpg') }}" alt="Kolaborator 3" 
-                                 class="rounded-circle border border-3 border-white shadow" 
-                                 style="width: 60px; height: 60px; object-fit: cover;" 
-                                 onerror="this.src='https://ui-avatars.com/api/?name=Designer&background=ffc107&color=000&size=60'">
-                            <div class="position-absolute bottom-0 end-0 bg-warning rounded-circle border border-2 border-white" 
-                                 style="width: 18px; height: 18px;" title="Away"></div>
-                        </div>
-                        
-                        <!-- Avatar 4 -->
-                        <div class="position-relative">
-                            <img src="{{ asset('images/avatar-4.jpg') }}" alt="Kolaborator 4" 
-                                 class="rounded-circle border border-3 border-white shadow" 
-                                 style="width: 60px; height: 60px; object-fit: cover;" 
-                                 onerror="this.src='images/logo_lpske.png'">
-                            <div class="position-absolute bottom-0 end-0 bg-info rounded-circle border border-2 border-white" 
-                                 style="width: 18px; height: 18px;" title="Busy"></div>
-                        </div>
-                        
-                       
-                    
-                    <div class="d-flex justify-content-center gap-3 flex-wrap">
-                        <a href="{{ route('kolaborator') }}" class="btn btn-light btn-lg px-4 py-2 shadow-sm hover-shadow transition-all" style="border-radius: 50px;">
-                            <i class="fas fa-eye me-2"></i> Lihat Selengkapnya
-                        </a>
-                        
+                    <div>
+                        <h3 class="mb-2 fw-bold">Kolaborasi Proyek</h3>
+                        <p class="mb-0 opacity-75">Proyek ini merupakan hasil kolaborasi tim yang luar biasa</p>
                     </div>
                 </div>
+                
+                <p class="lead mb-4 opacity-90">
+                    Website LPSKE ini dikembangkan melalui kerja sama yang solid antara berbagai pihak yang berkontribusi dalam pengembangan sistem informasi laboratorium.
+                </p>
+                
+                <div class="d-flex justify-content-center align-items-center mb-4 flex-wrap gap-4">
+                    <div style="width: 90px; height: 90px; border-radius: 50%; overflow: hidden; border: 3px solid rgba(255, 255, 255, 0.5);">
+                        <img src="{{ asset('images/avatar-1.jpg') }}" alt="Kolaborator 1" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='images/smk2ska.png'">
+                    </div>
+                    
+                    <div style="width: 90px; height: 90px; border-radius: 50%; overflow: hidden; border: 3px solid rgba(255, 255, 255, 0.5);">
+                        <img src="{{ asset('images/avatar-2.jpg') }}" alt="Kolaborator 2" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='images/enuma.jfif'">
+                    </div>
+                    
+                    <div style="width: 90px; height: 90px; border-radius: 50%; overflow: hidden; border: 3px solid rgba(255, 255, 255, 0.5);">
+                        <img src="{{ asset('images/avatar-3.jpg') }}" alt="Kolaborator 3" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='images/title_lpske.png'">
+                    </div>
+                    
+                    <div style="width: 90px; height: 90px; border-radius: 50%; overflow: hidden; border: 3px solid rgba(255, 255, 255, 0.5);">
+                        <img src="{{ asset('images/avatar-4.jpg') }}" alt="Kolaborator 4" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='images/mers.jfif'">
+                    </div>
+                </div>
+                
+                <a href="{{ route('kolaborator') }}" class="btn btn-light btn-lg px-4 py-2 shadow-sm" style="border-radius: 50px;">
+                    <i class="fas fa-eye me-2"></i> see more
+                </a>
             </div>
         </div>
+    </div>
+
+
         
         <!-- Decorative elements -->
         <div class="position-absolute top-0 start-0 w-100 h-100 overflow-hidden" style="z-index: 0; opacity: 0.1;">
